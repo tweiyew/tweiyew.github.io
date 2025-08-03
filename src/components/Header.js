@@ -99,20 +99,20 @@ return (
                 Hi, I'm Wei Yew
                 </Text>
 
-                <Text
-                mt={4}
-                fontSize="md"
-                color={isDark ? 'gray.200' : 'gray.600'}
-                lineHeight="taller"
-                >
-                Penultimate Data Science & AI student at Nanyang Technological University in Singapore.
-                <br />
-                Currently on exchange at École Polytechnique Fédérale de Lausanne.
-                <br />
-                Interested in scalable data systems, computer vision, and LLM tools.
-                <br />
-                Trilingual: EN | CN | FR
-                </Text>
+<Stack mt={4} spacing={3} textAlign="left">
+  <Text fontSize={{ base: "sm", md: "md" }} color={isDark ? 'gray.200' : 'gray.600'} lineHeight="taller">
+    - Penultimate Data Science & AI student at Nanyang Technological University in Singapore.
+  </Text>
+  <Text fontSize={{ base: "sm", md: "md" }} color={isDark ? 'gray.200' : 'gray.600'} lineHeight="taller">
+    - Currently on exchange at École Polytechnique Fédérale de Lausanne.
+  </Text>
+  <Text fontSize={{ base: "sm", md: "md" }} color={isDark ? 'gray.200' : 'gray.600'} lineHeight="taller">
+    - Interested in scalable data systems, computer vision, and LLM tools.
+  </Text>
+  <Text fontSize={{ base: "sm", md: "md" }} color={isDark ? 'gray.200' : 'gray.600'} lineHeight="taller">
+    - Trilingual: EN | CN | FR
+  </Text>
+</Stack>
 
                 <Button
                 leftIcon={<FaEnvelope />}
