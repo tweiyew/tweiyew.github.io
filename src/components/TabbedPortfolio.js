@@ -264,7 +264,7 @@ export default function TabbedPortfolio() {
 
                         <SimpleGrid columns={{ base: 1 }} spacing={6}>
                             {experiences.map((exp) => (
-                                
+
                             <Box
                             key={exp.title}
                             p={6}
@@ -354,18 +354,32 @@ export default function TabbedPortfolio() {
                                     minH="300px"
                                 >
                                     {/* Title + Date */}
-                                    <Flex justify="space-between" align="start" mb={3}>
+                                    <Flex
+                                    direction={{ base: "column", md: "row" }}
+                                    justify="space-between"
+                                    align={{ base: "flex-start", md: "flex-start" }}
+                                    gap={2}
+                                    mb={3}
+                                    >
+                                    {/* Left: Project Title */}
                                     <Box>
                                         <Heading size="md" color="blue.400">
                                         {project.title}
                                         </Heading>
                                     </Box>
-                                    <HStack spacing={1} fontSize="sm" color={sectionSubtext}>
+
+                                    {/* Right: Date */}
+                                    <Box
+                                        textAlign={{ base: "left", md: "right" }}
+                                        fontSize="sm"
+                                        color={sectionSubtext}
+                                    >
+                                        <HStack spacing={1} justify="flex-end">
                                         <FaCalendarAlt />
                                         <Text>{project.date}</Text>
-                                    </HStack>
+                                        </HStack>
+                                    </Box>
                                     </Flex>
-
                                     {/* Description */}
                                     <Text fontSize="sm" color={sectionSubtext} mb={2}>
                                     {project.description}
