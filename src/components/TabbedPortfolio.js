@@ -9,6 +9,7 @@ import {
     Text,
     SimpleGrid,
     Stack,
+    VStack,
     Badge,
     useColorModeValue,
     HStack,
@@ -273,21 +274,30 @@ export default function TabbedPortfolio() {
                                 boxShadow="md"
                                 position="relative"
                             >
-                                <Box position="absolute" top={4} right={4} textAlign="right" fontSize="sm" color={sectionSubtext}>
-                                <HStack spacing={1} justify="flex-end">
-                                    <FaCalendarAlt /> <Text>{exp.date}</Text>
-                                </HStack>
-                                <HStack spacing={1} justify="flex-end">
-                                    <FaMapMarkerAlt /> <Text>{exp.location}</Text>
-                                </HStack>
+
+                                <Flex justify="space-between" align="flex-start" mb={2}>
+                                <Box>
+                                    <Heading size="md" color="blue.400" mb={1}>
+                                    {exp.title}
+                                    </Heading>
+                                    <Text fontWeight="semibold" fontSize="sm" color={sectionSubtext} mb={4}>
+                                    {exp.organization}
+                                    </Text>
                                 </Box>
 
-                                <Heading size="md" color="blue.400" mb={1}>
-                                {exp.title}
-                                </Heading>
-                                <Text fontWeight="semibold" fontSize="sm" color={sectionSubtext} mb={4}>
-                                {exp.organization}
-                                </Text>
+                                <Box textAlign="right" fontSize="sm" color={sectionSubtext}>
+                                    <VStack spacing={1} align="flex-end">
+                                    <HStack spacing={1}>
+                                        <FaCalendarAlt />
+                                        <Text>{exp.date}</Text>
+                                    </HStack>
+                                    <HStack spacing={1}>
+                                        <FaMapMarkerAlt />
+                                        <Text>{exp.location}</Text>
+                                    </HStack>
+                                    </VStack>
+                                </Box>
+                                </Flex>
 
                                 <Text fontSize="sm" color={sectionSubtext} mb={4}>
                                 {exp.description}
