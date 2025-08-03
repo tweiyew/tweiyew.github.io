@@ -264,51 +264,62 @@ export default function TabbedPortfolio() {
 
                         <SimpleGrid columns={{ base: 1 }} spacing={6}>
                             {experiences.map((exp) => (
+                                
                             <Box
-                                key={exp.title}
-                                p={6}
-                                borderRadius="lg"
-                                bg={cardAltBg}
-                                border="1px solid"
-                                borderColor={cardBorder}
-                                boxShadow="md"
-                                position="relative"
+                            key={exp.title}
+                            p={6}
+                            borderRadius="lg"
+                            bg={cardAltBg}
+                            border="1px solid"
+                            borderColor={cardBorder}
+                            boxShadow="md"
                             >
-
-                                <Flex justify="space-between" align="flex-start" mb={2}>
+                            <Flex
+                                direction={{ base: "column", md: "row" }}
+                                justify="space-between"
+                                align={{ base: "flex-start", md: "flex-start" }}
+                                mb={2}
+                                gap={2}
+                            >
+                                {/* Left: Title + Organization */}
                                 <Box>
-                                    <Heading size="md" color="blue.400" mb={1}>
+                                <Heading size="md" color="blue.400" mb={1}>
                                     {exp.title}
-                                    </Heading>
-                                    <Text fontWeight="semibold" fontSize="sm" color={sectionSubtext} mb={4}>
+                                </Heading>
+                                <Text fontWeight="semibold" fontSize="sm" color={sectionSubtext} mb={2}>
                                     {exp.organization}
-                                    </Text>
-                                </Box>
-
-                                <Box textAlign="right" fontSize="sm" color={sectionSubtext}>
-                                    <VStack spacing={1} align="flex-end">
-                                    <HStack spacing={1}>
-                                        <FaCalendarAlt />
-                                        <Text>{exp.date}</Text>
-                                    </HStack>
-                                    <HStack spacing={1}>
-                                        <FaMapMarkerAlt />
-                                        <Text>{exp.location}</Text>
-                                    </HStack>
-                                    </VStack>
-                                </Box>
-                                </Flex>
-
-                                <Text fontSize="sm" color={sectionSubtext} mb={4}>
-                                {exp.description}
                                 </Text>
+                                </Box>
 
-                                <Text fontWeight="bold" mb={2}>Key Achievements:</Text>
-                                <UnorderedList spacing={1} color={sectionSubtext}>
+                                {/* Right: Date + Location */}
+                                <Box
+                                textAlign={{ base: "left", md: "right" }}
+                                fontSize="sm"
+                                color={sectionSubtext}
+                                >
+                                <VStack spacing={1} align={{ base: "flex-start", md: "flex-end" }}>
+                                    <HStack spacing={1}>
+                                    <FaCalendarAlt />
+                                    <Text>{exp.date}</Text>
+                                    </HStack>
+                                    <HStack spacing={1}>
+                                    <FaMapMarkerAlt />
+                                    <Text>{exp.location}</Text>
+                                    </HStack>
+                                </VStack>
+                                </Box>
+                            </Flex>
+
+                            <Text fontSize="sm" color={sectionSubtext} mb={4}>
+                                {exp.description}
+                            </Text>
+
+                            <Text fontWeight="bold" mb={2}>Key Achievements:</Text>
+                            <UnorderedList spacing={1} color={sectionSubtext}>
                                 {exp.achievements.map((item, i) => (
-                                    <ListItem key={i}>{item}</ListItem>
+                                <ListItem key={i}>{item}</ListItem>
                                 ))}
-                                </UnorderedList>
+                            </UnorderedList>
                             </Box>
                             ))}
                         </SimpleGrid>
